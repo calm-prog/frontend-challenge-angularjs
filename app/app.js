@@ -3,6 +3,7 @@
 angular
   .module("myApp", [
     "ngRoute",
+    "myApp.landingView",
     "myApp.view1",
     "myApp.view2",
     "myApp.configService",
@@ -14,7 +15,7 @@ angular
     function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix("!");
 
-      $routeProvider.otherwise({ redirectTo: "/view1" });
+      $routeProvider.otherwise({ redirectTo: "/" });
     },
   ])
   .controller("ImageSearchController", [
