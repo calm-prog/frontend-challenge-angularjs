@@ -26,8 +26,8 @@
     // load all of the dependencies asynchronously.
     $script([
       'app.js',
-      'view1/view1.js',
-      'view2/view2.js'
+      'images/images.js',
+      'noResults/noResults.js'
     ], function() {
       // when all is done, execute bootstrap AngularJS application
       angular.bootstrap(document, ['myApp']);
@@ -38,8 +38,8 @@
 </head>
 <body ng-cloak>
   <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
+    <li><a href="#!/images">images</a></li>
+    <li><a href="#!/noResults">noResults</a></li>
   </ul>
 
   <div ng-view></div>

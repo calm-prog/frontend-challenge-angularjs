@@ -3,8 +3,9 @@
 angular
   .module("myApp", [
     "ngRoute",
-    "myApp.view1",
-    "myApp.view2",
+    "myApp.landingView",
+    "myApp.imagesView",
+    "myApp.noResultsView",
     "myApp.configService",
     "myApp.unsplashService",
   ])
@@ -14,15 +15,16 @@ angular
     function ($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix("!");
 
-      $routeProvider.otherwise({ redirectTo: "/view1" });
+      $routeProvider.otherwise({ redirectTo: "/" });
     },
   ])
   .controller("ImageSearchController", [
     "$scope",
+    "$location",
     "UnsplashService",
-    function ($scope, UnsplashService) {
+    function ($scope, $location, UnsplashService) {
       $scope.query = "";
-      $scope.images = [];
+      $scope.images = undefined;
       $scope.page = 1;
       $scope.perPage = 10;
 
@@ -31,12 +33,9 @@ angular
           return;
         }
 
-        $scope.page = 1;
-        $scope.images = [];
-
         UnsplashService.searchImages($scope.query, $scope.page, $scope.perPage)
           .then(function (data) {
-            $scope.images = data.results;
+            $scope.images = data.results
           })
           .catch(function (error) {
             console.error("Error during image search:", error);
@@ -54,6 +53,18 @@ angular
             console.error("Error loading more images:", error);
           });
       };
+
+      $scope.$watch('images', function(newImages, oldImages) {
+        if (newImages !== oldImages) {
+            if (newImages === undefined) {
+              $location.path("/");
+            } else if (newImages.length === 0) {
+                $location.path("/noResults");
+            } else {
+                $location.path("/images");
+            }
+          }
+      });
 
       $scope.searchImages();
     },
