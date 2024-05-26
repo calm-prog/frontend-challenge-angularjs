@@ -1,0 +1,4 @@
+.landing-img {
+    transform: perspective(500px) rotateX(30deg);
+    max-width: 250px;
+}

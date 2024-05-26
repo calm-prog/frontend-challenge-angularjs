@@ -1,25 +1,46 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.caveat-font {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
 }
 
-.menu:before {
-  content: "[";
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
 }
 
-.menu:after {
-  content: "]";
+.search-form {
+  padding-block: 10px;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid 1px lightgrey;
 }
 
-.menu > li {
-  display: inline;
+.search-input {
+  border-width: thin;
+  border-radius: 20px;
+  border-color: lightblue;
+  padding: 6px;
+  font-size: 17px;
+  text-align: center;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+input:focus {
+  outline: unset;
+}
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
