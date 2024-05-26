@@ -11,11 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="views/images/images.css">
+  <link rel="stylesheet" href="views/landing/landing.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&display=swap');
+  </style>
+  </style>
 </head>
 <body ng-controller="ImageSearchController">
-  <main class="main-layout">
+  <main class="main-layout caveat-font">
     <form class="search-form" ng-submit="searchImages()">
       <input class="search-input" type="search" ng-model="query" placeholder="Search for an image">
     </form>
@@ -37,6 +43,5 @@
   <script src="config.js"></script>
   <script src="services/configService.js"></script>
   <script src="services/unsplashService.js"></script>
-  <script src="../node_modules/angular-animate/angular-animate.min.js"></script>
 </body>
 </html>

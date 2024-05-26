@@ -33,6 +33,7 @@ angular
         if ($scope.query.trim() === "") {
           return;
         }
+        $location.path("/images");
 
         UnsplashService.searchImages($scope.query, $scope.page, $scope.perPage)
           .then(function (data) {

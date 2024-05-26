@@ -1,4 +1,12 @@
 /* app css stylesheet */
+.caveat-font {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+}
+
 .main-layout {
   display: flex;
   flex-direction: column;
