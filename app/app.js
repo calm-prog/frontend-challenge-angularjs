@@ -20,10 +20,11 @@ angular
   ])
   .controller("ImageSearchController", [
     "$scope",
+    "$location",
     "UnsplashService",
-    function ($scope, UnsplashService) {
+    function ($scope, $location, UnsplashService) {
       $scope.query = "";
-      $scope.images = [];
+      $scope.images = undefined;
       $scope.page = 1;
       $scope.perPage = 10;
 
@@ -32,12 +33,9 @@ angular
           return;
         }
 
-        $scope.page = 1;
-        $scope.images = [];
-
         UnsplashService.searchImages($scope.query, $scope.page, $scope.perPage)
           .then(function (data) {
-            $scope.images = data.results;
+            $scope.images = data.results
           })
           .catch(function (error) {
             console.error("Error during image search:", error);
@@ -55,6 +53,18 @@ angular
             console.error("Error loading more images:", error);
           });
       };
+
+      $scope.$watch('images', function(newImages, oldImages) {
+        if (newImages !== oldImages) {
+            if (newImages === undefined) {
+              $location.path("/");
+            } else if (newImages.length === 0) {
+                $location.path("/view2");
+            } else {
+                $location.path("/view1");
+            }
+          }
+      });
 
       $scope.searchImages();
     },
