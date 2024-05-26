@@ -1,1 +1,9 @@
 <p>This is the partial for view 1.</p>
+<div class="image-grid">
+  <img
+    ng-repeat="image in images"
+    ng-src="{{image.urls.regular}}"
+    alt="{{image.alt_description}}"
+  />
+</div>
+<button ng-show="images.length" ng-click="loadMore()">Load More</button>
