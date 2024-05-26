@@ -1,25 +1,38 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
 }
 
-.menu:before {
-  content: "[";
+.search-form {
+  padding-block: 10px;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid 1px lightgrey;
 }
 
-.menu:after {
-  content: "]";
+.search-input {
+  border-width: thin;
+  border-radius: 20px;
+  border-color: lightblue;
+  padding: 6px;
+  font-size: 17px;
+  text-align: center;
 }
 
-.menu > li {
-  display: inline;
+input:focus {
+  outline: unset;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+.view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
