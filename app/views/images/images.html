@@ -3,6 +3,7 @@
     ng-repeat="image in images"
     ng-src="{{image.urls.regular}}"
     alt="{{image.alt_description}}"
+    class="{{getImageOrientation(image)}}"
   />
 </div>
-<button ng-show="images.length" ng-click="loadMore()">Load More</button>
+<button class="load-more-btn" ng-show="images.length" ng-click="loadMore()">Load More</button>

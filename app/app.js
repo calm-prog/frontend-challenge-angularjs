@@ -3,6 +3,7 @@
 angular
   .module("myApp", [
     "ngRoute",
+    "ngAnimate",
     "myApp.landingView",
     "myApp.imagesView",
     "myApp.noResultsView",
@@ -40,6 +41,16 @@ angular
           .catch(function (error) {
             console.error("Error during image search:", error);
           });
+      };
+
+      $scope.getImageOrientation = function (image) {
+        const { width, height } = image;
+
+        if (width >= height) {
+          return "landscape";
+        } else if (height > width) {
+          return "portrait";
+        }
       };
 
       $scope.loadMore = function () {
