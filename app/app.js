@@ -4,8 +4,8 @@ angular
   .module("myApp", [
     "ngRoute",
     "myApp.landingView",
-    "myApp.view1",
-    "myApp.view2",
+    "myApp.imagesView",
+    "myApp.noResultsView",
     "myApp.configService",
     "myApp.unsplashService",
   ])
@@ -59,9 +59,9 @@ angular
             if (newImages === undefined) {
               $location.path("/");
             } else if (newImages.length === 0) {
-                $location.path("/view2");
+                $location.path("/noResults");
             } else {
-                $location.path("/view1");
+                $location.path("/images");
             }
           }
       });
